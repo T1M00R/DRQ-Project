@@ -1,12 +1,12 @@
 import React from "react";
-import {taskItem} from './taskItem';
+import { TaskItem } from './taskItem';
 
-export class tasks extends React.Component{
+export class Tasks extends React.Component{
 
     render(){
         return this.props.tasks.map(
             (task)=>{
-                return <taskItem task={task} key={task._id} Reload={this.props.Reload}></taskItem>
+                return <TaskItem task={task} key={task._id} Reload={this.props.Reload}></TaskItem>
             }
         );
     }

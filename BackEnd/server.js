@@ -30,13 +30,12 @@ const mongoose = require('mongoose');
 const internal = require('stream')
 main().catch(err => console.log(err));
 
-// suppress warning
-mongoose.set('strictQuery', true);    
+  
 
 async function main() {   
 
-  // URI to connect to MongoDB Cluster
-  var uri = "mongodb+srv://admin:admin@cluster0.bjoyv2i.mongodb.net/?retryWrites=true&w=majority"
+  // URI to connect to MongoDB Cluster  - TaskManager = database name 
+  var uri = "mongodb+srv://admin:admin@cluster0.bjoyv2i.mongodb.net/TaskManager?retryWrites=true&w=majority"
   
   await mongoose.connect(uri);
 
@@ -50,13 +49,16 @@ const taskSchema = new mongoose.Schema({
   title: String,        
   description: String,
   dueDate: String,
-  priority: Integer,        // Task priority
+  priority: String,        // Task priority
   status: String,           // Complete / ongoing / not done
   tags: String,             // Categories
 });
 
 // Select database to use 
 const taskModel = mongoose.model('Tasks', taskSchema);
+
+// suppress warning
+mongoose.set('strictQuery', true);  
 
 // Post data to MongoDB
 app.post('/api/tasks',(req,res)=>{

@@ -1,5 +1,5 @@
 import React from "react";
-import { tasks } from "./tasks";
+import { Tasks } from "./tasks";
 import axios from "axios";
 
 export class TaskList extends React.Component {
@@ -18,6 +18,7 @@ export class TaskList extends React.Component {
             })
     }
 
+    // State is set to tasks above
     state = {
         tasks: []
     }
@@ -26,7 +27,7 @@ export class TaskList extends React.Component {
         return (
             <div>
                 <h3>This is where all the tasks go!</h3>
-                <tasks tasks={this.state.tasks} Reload={this.componentDidMount}></tasks>
+                <Tasks tasks={this.state.tasks} Reload={this.componentDidMount}></Tasks>
             </div>
         );
     }

@@ -4,38 +4,36 @@ import Button  from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export class taskItem extends React.Component {
+export class TaskItem extends React.Component {
     constructor(){
         super();
-        this.Deletetask = this.Deletetask.bind(this);
+        this.DeleteTask = this.DeleteTask.bind(this);
     }
-    Deletetask(e){
+    // Method used in delete button 
+    DeleteTask(e){
         e.preventDefault();
 
         axios.delete('http://localhost:4000/api/task/'+this.props.task._id)
         .then((res)=>{this.props.Reload();})
         .catch();
     }
+    
+    // Layout of task items in the list
     render() {
         return (
-            <div>
+            <div id="taskList">
 
                 <Card>
-                    <Card.Header>{this.props.task.title}</Card.Header>
+                    <Card.Header><h1>{this.props.task.title}</h1><h2>{this.props.task.dueDate}</h2></Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
-                            {/* // Fields to change to
-                                // -------------------
-                                // title: String,       
-                                // description: String,
-                                // dueDate: String,
-                                // priority: Integer,   
-                                // status: String,      
-                                // tags: String,         
-                            */}
-                            <img src={this.props.task.cover}></img> 
+                            <p>{this.props.task.description}</p>
+                            
+                            <h2>{this.props.task.priority}</h2>
+                            
                             <footer >
-                                {this.props.task.author}
+                                <h2>{this.props.task.status}</h2>
+                                <h2>{this.props.task.tags}</h2>
                             </footer>
                         </blockquote>
                     </Card.Body>
