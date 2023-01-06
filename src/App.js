@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { MainContent } from './components/mainContent';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import { TaskList } from './components/taskList';
+import { NewTask } from './components/newTask';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import { Edit } from './components/editTask';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+      <div className="App">
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="/">Landing page</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/taskList">Tasks</Nav.Link>
+              <Nav.Link href="/newTask">New Task</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      <Routes>
+        <Route path='/' element={<MainContent></MainContent>}></Route>
+        <Route path='/taskList' element={<TaskList></TaskList>}></Route>
+        <Route path='/newTask' element={<NewTask></NewTask>}></Route>
+        <Route path='/edit/:id' element={<Edit></Edit>}></Route>
+      </Routes>
+      </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
