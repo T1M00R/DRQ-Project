@@ -14,13 +14,12 @@ import {
 } from 'react-router-dom';
 import { Edit } from './components/editTask';
 
-
-
 class App extends React.Component {
   render() {
     return (
       <Router>
       <div className="App">
+        {/* Navigation bar */}
         <Navbar bg="dark" variant="dark">
           <Container>
             <Navbar.Brand href="/"></Navbar.Brand>
@@ -31,6 +30,7 @@ class App extends React.Component {
             </Nav>
           </Container>
         </Navbar>
+        {/* Routing to different locations in site */}
       <Routes>
         <Route path='/' element={<MainContent></MainContent>}></Route>
         <Route path='/taskList' element={<TaskList></TaskList>}></Route>

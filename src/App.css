@@ -66,13 +66,7 @@
   border-radius: 6px;
 }
 
-.calendar{
-  margin:auto;
-  padding-left: 680px;
-  padding-right: 680px;
-  
-}
-
+/* React calendar styling */
 .react-calendar { 
   width: 80%;
   padding: 10px;
