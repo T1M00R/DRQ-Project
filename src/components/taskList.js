@@ -8,6 +8,7 @@ export class TaskList extends React.Component {
         this.componentDidMount = this.componentDidMount.bind(this);
     }
    
+    // If component mounted, get api/tasks using axios
     componentDidMount() {
         axios.get('http://localhost:4000/api/tasks')
             .then((response) => {

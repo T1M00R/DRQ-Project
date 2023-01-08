@@ -1,6 +1,7 @@
 import React from "react";
 import { TaskItem } from './taskItem';
 
+// Class to view taskItems as tasks
 export class Tasks extends React.Component{
 
     render(){

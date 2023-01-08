@@ -23,23 +23,25 @@ export class TaskItem extends React.Component {
         return (
             <div id="taskList">
 
+
                 <Card>
-                    <Card.Header><h1>{this.props.task.title}</h1><h2>{this.props.task.dueDate}</h2></Card.Header>
+                    <Card.Header><h1>{this.props.task.title}</h1><h2>Due date: {this.props.task.dueDate}</h2></Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
-                            <p>{this.props.task.description}</p>
+                            <p>Description: {this.props.task.description}</p>
                             
-                            <h2>{this.props.task.priority}</h2>
+                            <h2>Priority: {this.props.task.priority}</h2>
                             
                             <footer >
-                                <h2>{this.props.task.status}</h2>
-                                <h2>{this.props.task.tags}</h2>
+                                <h2>Status: {this.props.task.status}</h2>
+                                <h2>Category: {this.props.task.tags}</h2>
                             </footer>
                         </blockquote>
                     </Card.Body>
                     <Link to={'/edit/' + this.props.task._id} className="btn btn-primary">Edit</Link>
-                    <Button variant="danger" onClick={this.Deletetask}>Delete</Button>
+                    <Button variant="danger" onClick={this.DeleteTask}>Delete</Button>
                 </Card>
+                <br></br>
             </div>
         );
     }

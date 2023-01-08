@@ -14,6 +14,8 @@ import {
 } from 'react-router-dom';
 import { Edit } from './components/editTask';
 
+
+
 class App extends React.Component {
   render() {
     return (
@@ -21,7 +23,7 @@ class App extends React.Component {
       <div className="App">
         <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="/">Landing page</Navbar.Brand>
+            <Navbar.Brand href="/"></Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/taskList">Tasks</Nav.Link>

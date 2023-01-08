@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 
+// Class for creating new tasks
 export class NewTask extends React.Component {
 
     constructor(){
@@ -25,6 +26,7 @@ export class NewTask extends React.Component {
         }
     }
 
+    // On button press, submit form and create a new task
     handleSubmit(e){
         e.preventDefault();
         console.log(`Button clicked 
@@ -60,6 +62,7 @@ export class NewTask extends React.Component {
         })
     }
 
+    // Set methods for new task
     onChangeTaskTitle(e){
         this.setState({
             title:e.target.value
@@ -123,7 +126,7 @@ export class NewTask extends React.Component {
                         <div className="form-group">
                         <br></br>
                             <label>Add Due Date: </label>
-                            <input type="text"      // change to date
+                            <input type="date"      // change to date
                                 className="form-control"
                                 value={this.state.dueDate}
                                 onChange={this.onChangeTaskDueDate}
@@ -133,7 +136,7 @@ export class NewTask extends React.Component {
                         <div className="form-group">
                         <br></br>
                             <label>Add Priority: </label>
-                            <input type="text"      // change to number
+                            <input type="number"      // change to number
                                 className="form-control"
                                 value={this.state.priority}
                                 onChange={this.onChangeTaskPriority}
@@ -160,7 +163,7 @@ export class NewTask extends React.Component {
                             />
                         </div>
                         <br></br>
-                        <input type="submit" value="Add task" />
+                        <input type="submit" value="Add task" id="button"/>
                     </form>
                 </div>
 
@@ -169,11 +172,4 @@ export class NewTask extends React.Component {
     }
 }
 
-// Fields to change to
-    // -------------------
-    // title: String,       
-    // description: String,
-    // dueDate: String,
-    // priority: Integer,   
-    // status: String,      
-    // tags: String,        
+   
